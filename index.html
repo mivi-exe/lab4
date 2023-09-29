@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flower Gallery</title>
+    <link rel="stylesheet" href="main.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+
+<body>
+    <header>
+        <h1 class="title">Flower Gallery</h1>
+        <p>Click on a picture to zoom in! :)</p>
+        <p>Note: I know nothing about flowers so if any of the names are wrong please don't hate me</p>
+    </header>
+
+    <main>
+        <section class="full-image" id="image_box_js">
+            <img id="image_change_js" src="assets/lily-of-valley.png" alt="Lily of The Valley Flower">
+            <span onclick="close_image_box()">X</span>
+        </section>
+
+        <section class="images" id="gallery_js">
+            <img src="assets/lily-of-valley.png" alt="Lily of The Valley Flower" onclick="open_image_box(this.src)">
+
+            <img src="assets/purple-dahlia.png" alt="Purple Dahlia" onclick="open_image_box(this.src)">
+
+            <img src="assets/pink-daisy.png" alt="Pink Daisy" onclick="open_image_box(this.src)">
+
+            <img src="assets/white-blossom.png" alt="White Blossoms" onclick="open_image_box(this.src)">
+
+            <img src="assets/peach-dahlia.png" alt="Peach Colored Dahlia" onclick="open_image_box(this.src)">
+
+            <img src="assets/sunflower.png" alt="Sunflower" onclick="open_image_box(this.src)">
+
+            <img src="assets/white-daisy.png" alt="White Daisy" onclick="open_image_box(this.src)">
+
+            <img src="assets/pink-rose.png" alt="Pink Rose" onclick="open_image_box(this.src)">
+            </section>
+
+        <script>
+            var image_box_js = document.getElementById("image_box_js");
+            var gallery_js = document.getElementById("gallery_js");
+            var image_change_js = document.getElementById("image_change_js");
+        
+            function open_image_box(picture) {
+                image_box_js.style.display = "flex";
+                image_change_js.src = picture;
+                gallery_js.style.display = "none";
+            }
+
+            function close_image_box() {
+                image_box_js.style.display = "none";
+                gallery_js.style.display = "flex";
+            }
+        </script>
+  </main>
+  <footer>
+    <p>A floral website by Misha</p>
+  </footer> 
+
+</body>
+</html>
