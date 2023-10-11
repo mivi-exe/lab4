@@ -18,48 +18,85 @@
 
     <main>
         <section class="full-image" id="image_box_js">
-            <img id="image_change_js" src="assets/lily-of-valley.png" alt="Lily of The Valley Flower">
-            <span onclick="close_image_box()">X</span>
+          <img class="x" src="x.png" onclick="close_image_box()">
+          <img id="image_change_js" src="assets/lily-of-valley.png">
+          <section class="arrows-section">
+            <img class="arrows" src="left-arrow.png" onclick="previous_image()">
+            <img class="arrows" src="right-arrow.png" onclick="next_image()">
+          </section>
         </section>
 
         <section class="images" id="gallery_js">
-            <img src="assets/lily-of-valley.png" alt="Lily of The Valley Flower" onclick="open_image_box(this.src)">
+            <img src="assets/lily-of-valley.png" alt="Lily of The Valley Flower" onclick="open_image_box(this.src)" id="img1">
 
-            <img src="assets/purple-dahlia.png" alt="Purple Dahlia" onclick="open_image_box(this.src)">
+            <img src="assets/purple-dahlia.png" alt="Purple Dahlia" onclick="open_image_box(this.src)" id="img2">
 
-            <img src="assets/pink-daisy.png" alt="Pink Daisy" onclick="open_image_box(this.src)">
+            <img src="assets/pink-daisy.png" alt="Pink Daisy" onclick="open_image_box(this.src)" id="img3">
 
-            <img src="assets/white-blossom.png" alt="White Blossoms" onclick="open_image_box(this.src)">
+            <img src="assets/white-blossom.png" alt="White Blossoms" onclick="open_image_box(this.src)" id="img4">
 
-            <img src="assets/peach-dahlia.png" alt="Peach Colored Dahlia" onclick="open_image_box(this.src)">
+            <img src="assets/peach-dahlia.png" alt="Peach Colored Dahlia" onclick="open_image_box(this.src)" id="img5">
 
-            <img src="assets/sunflower.png" alt="Sunflower" onclick="open_image_box(this.src)">
+            <img src="assets/sunflower.png" alt="Sunflower" onclick="open_image_box(this.src)" id="img6">
 
-            <img src="assets/white-daisy.png" alt="White Daisy" onclick="open_image_box(this.src)">
+            <img src="assets/white-daisy.png" alt="White Daisy" onclick="open_image_box(this.src)" id="img7">
 
-            <img src="assets/pink-rose.png" alt="Pink Rose" onclick="open_image_box(this.src)">
+            <img src="assets/pink-rose.png" alt="Pink Rose" onclick="open_image_box(this.src)" id="img8"> 
             </section>
 
         <script>
+
+            var i = 0;
             var image_box_js = document.getElementById("image_box_js");
             var gallery_js = document.getElementById("gallery_js");
             var image_change_js = document.getElementById("image_change_js");
+            var img_array = ["lily-of-valley.png", "purple-dahlia.png", "pink-daisy.png", "white-blossom.png", "peach-dahlia.png", "sunflower.png", "white-daisy.png", "pink-rose.png"];
         
+            function change_image() {
+              return image_change_js.setAttribute('src', "assets/"+img_array[i]);
+            }
+
             function open_image_box(picture) {
                 image_box_js.style.display = "flex";
-                image_change_js.src = picture;
                 gallery_js.style.display = "none";
+                image_change_js.src = picture;
             }
 
             function close_image_box() {
                 image_box_js.style.display = "none";
                 gallery_js.style.display = "flex";
             }
+
+            function previous_image() {
+              if (i == 0) {
+                i = 7;
+              }
+
+              else {
+                i--;
+              }
+
+              return change_image();
+            }
+
+            function next_image() {
+              if (i == 7) {
+                i = 0;
+              }
+
+              else {
+                i++;
+              }
+
+              return change_image();
+            }
+
         </script>
-  </main>
-  <footer>
-    <p>A floral website by Misha</p>
-  </footer> 
+    </main>
+
+    <footer>
+      <p>A floral website by Misha</p>
+    </footer> 
 
 </body>
 </html>
