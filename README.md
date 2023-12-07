@@ -1,2 +1,2 @@
 # lab4
-https://github.com/mivi-exe/lab5
+https://github.com/mivi-exe/lab4
